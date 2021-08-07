@@ -4,7 +4,7 @@ import { BaseService } from "../services/base.service";
 export class BaseController {
   constructor(private readonly service: BaseService) {}
 
-  @Get()
+  @Get("/")
   public getHello(): string {
     return this.service.getHello()
   }

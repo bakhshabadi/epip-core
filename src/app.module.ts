@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 import { APP_GUARD, RouterModule } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { AdminModule } from './admin/admin.module';
+import { AdminRouter } from './admin/routers/admin.router';
 
 @Module({
   imports: [
-    admin,
+    AdminRouter,
     ThrottlerModule.forRoot({
       ttl: 1,
       limit: 5,
