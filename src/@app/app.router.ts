@@ -1,7 +1,7 @@
 import { RouterModule } from "@nestjs/core";
-import { AdminModule } from "../admin.module";
+import { AdminModule } from "../admin/admin.module";
 
-export const AdminRouter = RouterModule.register([
+export const AppRouter = RouterModule.register([
   {
     path: "admin",
     module: AdminModule,
