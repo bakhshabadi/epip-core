@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
 
-@Injectable()
-export class BaseService {
-  getHello(): string {
-    return 'Hello World!...';
+export class BaseService<T> {
+  constructor(private repo:Repository<T>){}
+  getAll(): Promise<T[]> {
+    return this.repo.find({});
   }
 }

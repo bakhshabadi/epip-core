@@ -1,4 +1,7 @@
+import { dirname } from 'path/posix';
+import { User } from 'src/admin/models/users.model';
 import { ConnectionOptions, createConnection } from 'typeorm';
+
 
 export const databaseProviders = [
   {
@@ -11,7 +14,7 @@ export const databaseProviders = [
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [
-          __dirname + '/../**/*.model{.ts,.js}',
+        __dirname+'../../../../../src/**/*.model{.ts,.js}',
       ],
       synchronize: true,
     } as ConnectionOptions) ,
