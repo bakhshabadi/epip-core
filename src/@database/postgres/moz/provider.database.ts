@@ -1,5 +1,4 @@
 import { dirname } from 'path/posix';
-import { User } from 'src/admin/models/users.model';
 import { ConnectionOptions, createConnection } from 'typeorm';
 
 

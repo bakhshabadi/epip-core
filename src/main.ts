@@ -14,10 +14,9 @@ async function bootstrap() {
   app.use(helmet());
 
   const swConfig = new DocumentBuilder()
-    .setTitle("Cats example")
-    .setDescription("The cats API description")
+    .setTitle("Sample Apis")
+    .setDescription("The sample API description")
     .setVersion("1.0")
-    .addTag("cats")
     .build();
   const document = SwaggerModule.createDocument(app, swConfig);
   SwaggerModule.setup("api", app, document);

@@ -1,11 +1,17 @@
-import { Get } from "@nestjs/common";
-import { BaseService } from "../services/base.service";
+import { ApiExtraModels, ApiOkResponse, getSchemaPath } from "@nestjs/swagger";
+import { IResponse } from "../types/IRes.interface";
 
+@ApiExtraModels(IResponse)
 export class BaseController<T> {
-  constructor(private readonly service: BaseService<T>) {}
+  constructor() {}
 
-  @Get("/")
-  public async getAll(): Promise<any> {
-    return { data: await this.service.getAll(), port: process.env.DB_PORT,qwe:123 };
-  }
+//   @Get("/")
+//   @ApiGetAllResponse('User')
+//   public async getAll(): Promise<IResponse<T>> {
+//     return { 
+//       status:0,
+//       message: process.env.DB_PORT,
+//       results: await this.service.getAll(), 
+//     };
+//   }
 }

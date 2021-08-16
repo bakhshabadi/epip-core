@@ -3,7 +3,7 @@ import { AdminModule } from "../admin/admin.module";
 
 export const AppRouter = RouterModule.register([
   {
-    path: "admin",
+    path: "Admin",
     module: AdminModule,
   },
 ]);
