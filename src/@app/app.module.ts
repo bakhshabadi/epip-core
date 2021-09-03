@@ -6,8 +6,6 @@ import { ThrottlerGuard } from "@nestjs/throttler";
 import { AppRate } from "./app.rate";
 import { AppRouter } from "./app.router";
 import { AdminModule } from "../admin/admin.module";
-import { IResponse } from "src/@core/types/IRes.interface";
-import { ApiExtraModels } from "@nestjs/swagger";
 
 @Module({
   imports: [ 
