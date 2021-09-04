@@ -7,8 +7,8 @@
         "target": "ES5",
         "module": "CommonJS",
         "strict": true,
-        "outDir": "./core",
-        "baseUrl": "./src",
+        "outDir": "./",
+        "baseUrl": "./core",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "declaration": true,
@@ -19,7 +19,6 @@
         "types": [
             "reflect-metadata"
         ],
-
         "removeComments": true,
         "declarationMap": true,
         "allowSyntheticDefaultImports": true,
@@ -27,5 +26,5 @@
         "skipLibCheck": true,
     },
     "exclude": ["./node-modules/**/.ts"],
-    "include": ["src/**/*.ts"]
+    "include": ["core/**/*.ts"]
 }
