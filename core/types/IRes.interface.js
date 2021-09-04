@@ -10,19 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IResponse = void 0;
-const swagger_1 = require("@nestjs/swagger");
-class IResponse {
-    constructor() {
+var swagger_1 = require("@nestjs/swagger");
+var IResponse = (function () {
+    function IResponse() {
         this.status = 0;
     }
-}
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", Number)
-], IResponse.prototype, "status", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
-], IResponse.prototype, "message", void 0);
+    __decorate([
+        (0, swagger_1.ApiProperty)(),
+        __metadata("design:type", Number)
+    ], IResponse.prototype, "status", void 0);
+    __decorate([
+        (0, swagger_1.ApiProperty)(),
+        __metadata("design:type", String)
+    ], IResponse.prototype, "message", void 0);
+    return IResponse;
+}());
 exports.IResponse = IResponse;
 //# sourceMappingURL=IRes.interface.js.map

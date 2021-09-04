@@ -7,7 +7,7 @@
         "target": "ES5",
         "module": "CommonJS",
         "strict": true,
-        "outDir": "./",
+        "outDir": "./core",
         "baseUrl": "./src",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
