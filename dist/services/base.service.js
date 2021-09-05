@@ -107,7 +107,7 @@ var BaseService = (function () {
                                 }];
                         }
                         return [2, {
-                                status: 200,
+                                status: 201,
                                 message: "ok",
                                 results: results,
                             }];
@@ -240,7 +240,6 @@ var BaseService = (function () {
                             return [2, {
                                     status: 200,
                                     message: "ok",
-                                    results: resultsDelete
                                 }];
                         }
                         return [3, 4];

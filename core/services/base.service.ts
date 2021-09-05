@@ -53,7 +53,7 @@ export class BaseService<T> {
     }
 
     return {
-      status: 200,
+      status: 201,
       message: "ok",
       results,
     };
@@ -164,7 +164,6 @@ export class BaseService<T> {
         return {
           status: 200,
           message: "ok",
-          results:resultsDelete
         } as IResponse<T>;
       }
 
