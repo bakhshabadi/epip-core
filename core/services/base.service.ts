@@ -114,7 +114,7 @@ export class BaseService<T> {
     }
   }
 
-  public async patch(id: number, entity: DeepPartial<T>): Promise<IResponse<DeepPartial<T>>> {
+  public async patch(id: number, entity: T): Promise<IResponse<T>> {
     let [err, results] = await to(this.get(id));
     if (err) {
       return {
@@ -123,12 +123,11 @@ export class BaseService<T> {
       } as IResponse<T>;
     }
 
-    let data: DeepPartial<T>;
+    let data: T;
     if (results?.result) {
       data = results?.result;
       for (const key in entity) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          const element = entity[key];
+        if (Object.prototype.hasOwnProperty.call(data, key) && entity[key]) {
           data[key]=entity[key]
         }
       }
