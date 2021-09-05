@@ -141,7 +141,7 @@ export class BaseService<T> {
     };
   }
 
-  public async delete(id: number): Promise<IResponse<DeepPartial<T>>> {
+  public async delete(id: number): Promise<IResponse<T>> {
     let [err, results] = await to(this.get(id));
     if (err) {
       return {
