@@ -8,12 +8,12 @@ export class BaseEntity {
 
   @ApiProperty()
   @Column()
-  insertedAt: Date=new Date();
+  insertedAt?: Date=new Date();
 
   @ApiProperty()
   @Column()
-  updatedAt: Date=new Date();
+  updatedAt?: Date=new Date();
 
   @Column()
-  deletedAt: Date=new Date();
+  deletedAt?: Date=new Date();
 }

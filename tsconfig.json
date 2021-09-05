@@ -4,9 +4,9 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true, 
         "lib":[
-            "ES2021"
+            "ES5"
         ],
-        "target": "ES2021",
+        "target": "ES5",
         "module": "CommonJS",
         "strict": true,
         "outDir": "./dist",

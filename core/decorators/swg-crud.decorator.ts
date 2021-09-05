@@ -1,6 +1,6 @@
 import { applyDecorators, Delete, Get, Patch, Post, Put, Type } from "@nestjs/common";
 import { ApiOkResponse, ApiParam, getSchemaPath } from "@nestjs/swagger";
-import { IResponse, IResponseAll } from "../types/res.interface";
+import { IResponseAll } from "../types/res.interface";
 
 export const ApiGetAll = <TModel extends Type<any>>(
   model: TModel,
