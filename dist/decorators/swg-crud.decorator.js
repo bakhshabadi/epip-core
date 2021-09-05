@@ -29,25 +29,25 @@ var ApiGet = function (model, path) {
 };
 exports.ApiGet = ApiGet;
 var ApiPost = function (model, path) {
-    return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/"), (0, swagger_1.ApiOkResponse)({
+    return (0, common_1.applyDecorators)((0, common_1.Post)(path || "/"), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
 };
 exports.ApiPost = ApiPost;
 var ApiPut = function (model, path) {
-    return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/"), (0, swagger_1.ApiOkResponse)({
+    return (0, common_1.applyDecorators)((0, common_1.Put)(path || "/"), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
 };
 exports.ApiPut = ApiPut;
 var ApiPatch = function (model, path) {
-    return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/"), (0, swagger_1.ApiOkResponse)({
+    return (0, common_1.applyDecorators)((0, common_1.Patch)(path || "/"), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
 };
 exports.ApiPatch = ApiPatch;
 var ApiDelete = function (model, path) {
-    return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/"), (0, swagger_1.ApiOkResponse)({
+    return (0, common_1.applyDecorators)((0, common_1.Delete)(path || "/"), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
 };

@@ -1,4 +1,4 @@
-import { applyDecorators, Get, Type } from "@nestjs/common";
+import { applyDecorators, Delete, Get, Patch, Post, Put, Type } from "@nestjs/common";
 import { ApiOkResponse, getSchemaPath } from "@nestjs/swagger";
 import { IResponse } from "../types/res.interface";
 
@@ -43,7 +43,7 @@ export const ApiPost = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Get(path || "/"),
+    Post(path || "/"),
     ApiOkResponse({
       type: model,
     })
@@ -55,7 +55,7 @@ export const ApiPut = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Get(path || "/"),
+    Put(path || "/"),
     ApiOkResponse({
       type: model,
     })
@@ -67,7 +67,7 @@ export const ApiPatch = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Get(path || "/"),
+    Patch(path || "/"),
     ApiOkResponse({
       type: model,
     })
@@ -79,7 +79,7 @@ export const ApiDelete = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Get(path || "/"),
+    Delete(path || "/"),
     ApiOkResponse({
       type: model,
     })
