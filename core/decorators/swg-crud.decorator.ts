@@ -1,6 +1,6 @@
 import { applyDecorators, Delete, Get, Patch, Post, Put, Type } from "@nestjs/common";
 import { ApiOkResponse, ApiParam, getSchemaPath } from "@nestjs/swagger";
-import { IResponse } from "../types/res.interface";
+import { IResponse, IResponseAll } from "../types/res.interface";
 
 export const ApiGetAll = <TModel extends Type<any>>(
   model: TModel,
@@ -11,7 +11,7 @@ export const ApiGetAll = <TModel extends Type<any>>(
     ApiOkResponse({
       schema: {
         allOf: [
-          { $ref: getSchemaPath(IResponse) },
+          { $ref: getSchemaPath(IResponseAll) },
           {
             properties: {
               results: {
