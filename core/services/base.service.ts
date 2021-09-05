@@ -140,4 +140,39 @@ export class BaseService<T> {
       results:res,
     };
   }
+
+  public async delete(id: number): Promise<IResponse<DeepPartial<T>>> {
+    let [err, results] = await to(this.get(id));
+    if (err) {
+      return {
+        status: 500,
+        message: err.message,
+      } as IResponse<T>;
+    }
+
+    let data: DeepPartial<T>;
+    if (results?.results) {
+      data = results?.results;
+      
+      let [errDelete, resultsDelete] = await to(this.repo.softDelete(data));
+      if(errDelete){
+        return {
+          status: 500,
+          message: "not found record",
+        } as IResponse<T>;
+      }else{
+        return {
+          status: 200,
+          message: "ok",
+          results:resultsDelete
+        } as IResponse<T>;
+      }
+
+    }else{
+      return {
+        status: 404,
+        message: "not found record",
+      } as IResponse<T>;
+    }
+  }
 }

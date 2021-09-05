@@ -211,6 +211,48 @@ var BaseService = (function () {
             });
         });
     };
+    BaseService.prototype.delete = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, err, results, data, _b, errDelete, resultsDelete;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0: return [4, (0, await_to_js_1.to)(this.get(id))];
+                    case 1:
+                        _a = _c.sent(), err = _a[0], results = _a[1];
+                        if (err) {
+                            return [2, {
+                                    status: 500,
+                                    message: err.message,
+                                }];
+                        }
+                        if (!(results === null || results === void 0 ? void 0 : results.results)) return [3, 3];
+                        data = results === null || results === void 0 ? void 0 : results.results;
+                        return [4, (0, await_to_js_1.to)(this.repo.softDelete(data))];
+                    case 2:
+                        _b = _c.sent(), errDelete = _b[0], resultsDelete = _b[1];
+                        if (errDelete) {
+                            return [2, {
+                                    status: 500,
+                                    message: "not found record",
+                                }];
+                        }
+                        else {
+                            return [2, {
+                                    status: 200,
+                                    message: "ok",
+                                    results: resultsDelete
+                                }];
+                        }
+                        return [3, 4];
+                    case 3: return [2, {
+                            status: 404,
+                            message: "not found record",
+                        }];
+                    case 4: return [2];
+                }
+            });
+        });
+    };
     return BaseService;
 }());
 exports.BaseService = BaseService;

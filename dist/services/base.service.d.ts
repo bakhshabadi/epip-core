@@ -8,5 +8,6 @@ export declare class BaseService<T> {
     post(entity: T): Promise<IResponse<T>>;
     put(id: number, entity: T): Promise<IResponse<T>>;
     patch(id: number, entity: DeepPartial<T>): Promise<IResponse<DeepPartial<T>>>;
+    delete(id: number): Promise<IResponse<DeepPartial<T>>>;
 }
 //# sourceMappingURL=base.service.d.ts.map

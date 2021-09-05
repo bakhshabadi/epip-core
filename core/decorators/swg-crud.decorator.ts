@@ -62,6 +62,18 @@ export const ApiPut = <TModel extends Type<any>>(
   );
 };
 
+export const ApiPatch = <TModel extends Type<any>>(
+  model: TModel,
+  path?: string
+) => {
+  return applyDecorators(
+    Get(path || "/"),
+    ApiOkResponse({
+      type: model,
+    })
+  );
+};
+
 export const ApiDelete = <TModel extends Type<any>>(
   model: TModel,
   path?: string
