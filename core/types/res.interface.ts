@@ -21,5 +21,5 @@ export class IResponse<T>{
     message?:string;
     
 
-    results?:T;
+    result?:T;
 }

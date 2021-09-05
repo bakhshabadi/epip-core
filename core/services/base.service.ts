@@ -26,7 +26,7 @@ export class BaseService<T> {
   }
 
   public async get(id: number): Promise<IResponse<T>> {
-    const [err, results] = await to(
+    const [err, result] = await to(
       this.repo.findOne({
         where: {
           id,
@@ -44,13 +44,13 @@ export class BaseService<T> {
     return {
       status: 200,
       message: "ok",
-      results,
+      result,
     };
   }
 
   public async post(entity: T): Promise<IResponse<T>> {
     (entity as any).insertedAt=new Date()
-    const [err, results] = await to(this.repo.save(entity));
+    const [err, result] = await to(this.repo.save(entity));
     if (err) {
       return {
         status: 500,
@@ -61,7 +61,7 @@ export class BaseService<T> {
     return {
       status: 201,
       message: "ok",
-      results,
+      result,
     };
   }
 
@@ -76,8 +76,8 @@ export class BaseService<T> {
     }
 
     let data: T;
-    if (results?.results) {
-      data = results?.results;
+    if (results?.result) {
+      data = results?.result;
       for (const key in entity) {
         if (Object.prototype.hasOwnProperty.call(data, key)) {
           const element = entity[key];
@@ -124,8 +124,8 @@ export class BaseService<T> {
     }
 
     let data: DeepPartial<T>;
-    if (results?.results) {
-      data = results?.results;
+    if (results?.result) {
+      data = results?.result;
       for (const key in entity) {
         if (Object.prototype.hasOwnProperty.call(data, key)) {
           const element = entity[key];
@@ -172,8 +172,8 @@ export class BaseService<T> {
     }
 
     let data: DeepPartial<T>;
-    if (results?.results) {
-      data = results?.results;
+    if (results?.result) {
+      data = results?.result;
       (data as any).deletedAt=new Date();
       let [errDelete, resultsDelete] = await to(this.repo.update(id,data));
       if(errDelete){
