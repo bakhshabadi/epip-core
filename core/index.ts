@@ -1,3 +1,3 @@
-export {BaseService} from "./services";
-export {BaseEntity,IResponse} from "./types";
-export {ApiGetAll,ApiController} from "./decorators";
+export * from "./services";
+export * from "./types";
+export * from "./decorators";
