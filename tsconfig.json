@@ -1,6 +1,8 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true, 
         "lib":[
             "ES5"
         ],
@@ -12,8 +14,6 @@
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "declaration": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true, 
         "moduleResolution": "node",
         "sourceMap": true,
         "types": [
