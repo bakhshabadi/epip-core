@@ -15,5 +15,5 @@ export class BaseEntity {
   updatedAt: Date=new Date();
 
   @Column()
-  deletetAt: Date=new Date();
+  deletedAt: Date=new Date();
 }
