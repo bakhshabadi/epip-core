@@ -26,16 +26,16 @@ var BaseEntity = (function () {
     ], BaseEntity.prototype, "id", void 0);
     __decorate([
         (0, swagger_1.ApiProperty)(),
-        (0, typeorm_1.Column)(),
+        (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", Date)
     ], BaseEntity.prototype, "insertedAt", void 0);
     __decorate([
         (0, swagger_1.ApiProperty)(),
-        (0, typeorm_1.Column)(),
+        (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", Date)
     ], BaseEntity.prototype, "updatedAt", void 0);
     __decorate([
-        (0, typeorm_1.Column)(),
+        (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", Date)
     ], BaseEntity.prototype, "deletedAt", void 0);
     return BaseEntity;
