@@ -17,7 +17,7 @@ var BaseEntity = (function () {
         this.id = 0;
         this.insertedAt = new Date();
         this.updatedAt = new Date();
-        this.deletetAt = new Date();
+        this.deletedAt = new Date();
     }
     __decorate([
         (0, swagger_1.ApiProperty)(),
@@ -37,7 +37,7 @@ var BaseEntity = (function () {
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", Date)
-    ], BaseEntity.prototype, "deletetAt", void 0);
+    ], BaseEntity.prototype, "deletedAt", void 0);
     return BaseEntity;
 }());
 exports.BaseEntity = BaseEntity;
