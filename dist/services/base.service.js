@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseService = void 0;
 var await_to_js_1 = require("await-to-js");
+var typeorm_1 = require("typeorm");
 var BaseService = (function () {
     function BaseService(repo) {
         this.repo = repo;
@@ -47,7 +48,11 @@ var BaseService = (function () {
             var _a, err, results;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4, (0, await_to_js_1.to)(this.repo.find({}))];
+                    case 0: return [4, (0, await_to_js_1.to)(this.repo.find({
+                            where: {
+                                deletedAt: (0, typeorm_1.IsNull)()
+                            }
+                        }))];
                     case 1:
                         _a = _b.sent(), err = _a[0], results = _a[1];
                         if (err) {
@@ -73,6 +78,7 @@ var BaseService = (function () {
                     case 0: return [4, (0, await_to_js_1.to)(this.repo.findOne({
                             where: {
                                 id: id,
+                                deletedAt: (0, typeorm_1.IsNull)()
                             },
                         }))];
                     case 1:
@@ -97,7 +103,9 @@ var BaseService = (function () {
             var _a, err, results;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4, (0, await_to_js_1.to)(this.repo.save(entity))];
+                    case 0:
+                        entity.insertedAt = new Date();
+                        return [4, (0, await_to_js_1.to)(this.repo.save(entity))];
                     case 1:
                         _a = _b.sent(), err = _a[0], results = _a[1];
                         if (err) {
@@ -121,7 +129,9 @@ var BaseService = (function () {
             var _b;
             return __generator(this, function (_c) {
                 switch (_c.label) {
-                    case 0: return [4, (0, await_to_js_1.to)(this.get(id))];
+                    case 0:
+                        entity.insertedAt = new Date();
+                        return [4, (0, await_to_js_1.to)(this.get(id))];
                     case 1:
                         _a = _c.sent(), err = _a[0], results = _a[1];
                         if (err) {
@@ -145,7 +155,8 @@ var BaseService = (function () {
                                     message: "not found record",
                                 }];
                         }
-                        return [4, (0, await_to_js_1.to)(this.repo.save(data))];
+                        data.updatedAt = new Date();
+                        return [4, (0, await_to_js_1.to)(this.repo.update(id, data))];
                     case 2:
                         _b = _c.sent(), err = _b[0], res = _b[1];
                         if (err) {
@@ -154,11 +165,19 @@ var BaseService = (function () {
                                     message: err.message,
                                 }];
                         }
-                        return [2, {
-                                status: 200,
-                                message: "ok",
-                                results: res,
-                            }];
+                        if (res === null || res === void 0 ? void 0 : res.affected) {
+                            return [2, {
+                                    status: 200,
+                                    message: "ok",
+                                }];
+                        }
+                        else {
+                            return [2, {
+                                    status: 500,
+                                    message: 'error !.',
+                                }];
+                        }
+                        return [2];
                 }
             });
         });
@@ -193,7 +212,8 @@ var BaseService = (function () {
                                     message: "not found record",
                                 }];
                         }
-                        return [4, (0, await_to_js_1.to)(this.repo.save(data))];
+                        data.updatedAt = new Date();
+                        return [4, (0, await_to_js_1.to)(this.repo.update(id, data))];
                     case 2:
                         _b = _c.sent(), err = _b[0], res = _b[1];
                         if (err) {
@@ -202,11 +222,19 @@ var BaseService = (function () {
                                     message: err.message,
                                 }];
                         }
-                        return [2, {
-                                status: 200,
-                                message: "ok",
-                                results: res,
-                            }];
+                        if (res === null || res === void 0 ? void 0 : res.affected) {
+                            return [2, {
+                                    status: 200,
+                                    message: "ok",
+                                }];
+                        }
+                        else {
+                            return [2, {
+                                    status: 500,
+                                    message: 'error !.',
+                                }];
+                        }
+                        return [2];
                 }
             });
         });
@@ -227,7 +255,8 @@ var BaseService = (function () {
                         }
                         if (!(results === null || results === void 0 ? void 0 : results.results)) return [3, 3];
                         data = results === null || results === void 0 ? void 0 : results.results;
-                        return [4, (0, await_to_js_1.to)(this.repo.softDelete(data))];
+                        data.deletedAt = new Date();
+                        return [4, (0, await_to_js_1.to)(this.repo.update(id, data))];
                     case 2:
                         _b = _c.sent(), errDelete = _b[0], resultsDelete = _b[1];
                         if (errDelete) {
