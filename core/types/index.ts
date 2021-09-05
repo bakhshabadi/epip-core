@@ -1,1 +1,2 @@
-export * from "./IRes.interface";
+export * from "./res.interface";
+export * from "./base-entity";

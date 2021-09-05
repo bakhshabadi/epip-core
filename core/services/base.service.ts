@@ -1,7 +1,7 @@
 import { to } from 'await-to-js';
 import { Repository } from 'typeorm';
+import { IResponse } from '../types';
 
-import {IResponse} from '../types/IRes.interface';
 
 export class BaseService<T> {
   constructor(private repo:Repository<T>){}
