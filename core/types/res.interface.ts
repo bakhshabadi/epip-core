@@ -9,7 +9,7 @@ export class IResponseAll<T>{
     message?:string;
     
 
-    results?:Array<T>;
+    results?:T[];
 }
 
 export class IResponse<T>{
