@@ -35,7 +35,10 @@ var ApiPost = function (model, path) {
 };
 exports.ApiPost = ApiPost;
 var ApiPut = function (model, path) {
-    return (0, common_1.applyDecorators)((0, common_1.Put)(path || "/"), (0, swagger_1.ApiOkResponse)({
+    return (0, common_1.applyDecorators)((0, common_1.Put)(path || "/:id"), (0, swagger_1.ApiParam)({
+        name: 'id',
+        type: 'number'
+    }), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
 };
