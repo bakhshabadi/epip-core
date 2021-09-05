@@ -34,7 +34,7 @@ export const ApiGet = <TModel extends Type<any>>(
     Get(path || "/:id"),
     ApiParam({
       name: 'id',
-      type: 'number'
+      type: 'string'
     }),
     ApiOkResponse({
       type: model,
@@ -62,7 +62,7 @@ export const ApiPut = <TModel extends Type<any>>(
     Put(path || "/:id"),
     ApiParam({
       name: 'id',
-      type: 'number'
+      type: 'string'
     }),
     ApiOkResponse({
       type: model,
@@ -78,7 +78,7 @@ export const ApiPatch = <TModel extends Type<any>>(
     Patch(path || "/:id"),
     ApiParam({
       name: 'id',
-      type: 'number'
+      type: 'string'
     }),
     ApiOkResponse({
       type: model,
@@ -94,7 +94,7 @@ export const ApiDelete = <TModel extends Type<any>>(
     Delete(path || "/:id"),
     ApiParam({
       name: 'id',
-      type: 'number'
+      type: 'string'
     }),
     ApiOkResponse({
       type: model,
