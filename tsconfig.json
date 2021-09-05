@@ -26,5 +26,5 @@
         "skipLibCheck": true,
     },
     "exclude": ["./node-modules/**/.ts","./dist/**/*.*"],
-    "include": ["./**/*.ts"],
+    "include": ["./core/**/*.ts"],
 }
