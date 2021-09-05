@@ -1,8 +1,15 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiGetAll = exports.ApiController = void 0;
-var swg_ctrl_decorator_1 = require("./swg-ctrl.decorator");
-Object.defineProperty(exports, "ApiController", { enumerable: true, get: function () { return swg_ctrl_decorator_1.ApiController; } });
-var swg_get_all_decorator_1 = require("./swg-get-all.decorator");
-Object.defineProperty(exports, "ApiGetAll", { enumerable: true, get: function () { return swg_get_all_decorator_1.ApiGetAll; } });
+__exportStar(require("./swg-ctrl.decorator"), exports);
+__exportStar(require("./swg-crud.decorator"), exports);
 //# sourceMappingURL=index.js.map
