@@ -25,7 +25,7 @@ exports.ApiGetAll = ApiGetAll;
 var ApiGet = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
-        type: 'number'
+        type: 'string'
     }), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
@@ -40,7 +40,7 @@ exports.ApiPost = ApiPost;
 var ApiPut = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Put)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
-        type: 'number'
+        type: 'string'
     }), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
@@ -49,7 +49,7 @@ exports.ApiPut = ApiPut;
 var ApiPatch = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Patch)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
-        type: 'number'
+        type: 'string'
     }), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
@@ -58,7 +58,7 @@ exports.ApiPatch = ApiPatch;
 var ApiDelete = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Delete)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
-        type: 'number'
+        type: 'string'
     }), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
