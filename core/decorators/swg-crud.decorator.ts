@@ -31,7 +31,11 @@ export const ApiGet = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Get(path || "/"),
+    Get(path || "/:id"),
+    ApiParam({
+      name: 'id',
+      type: 'number'
+    }),
     ApiOkResponse({
       type: model,
     })
@@ -71,7 +75,11 @@ export const ApiPatch = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Patch(path || "/"),
+    Patch(path || "/:id"),
+    ApiParam({
+      name: 'id',
+      type: 'number'
+    }),
     ApiOkResponse({
       type: model,
     })
@@ -83,7 +91,11 @@ export const ApiDelete = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Delete(path || "/"),
+    Delete(path || "/:id"),
+    ApiParam({
+      name: 'id',
+      type: 'number'
+    }),
     ApiOkResponse({
       type: model,
     })
