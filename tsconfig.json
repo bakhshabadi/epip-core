@@ -25,6 +25,6 @@
         "incremental": true,
         "skipLibCheck": true,
     },
-    "exclude": ["./node-modules/**/.ts"],
-    "include": ["./**/*.ts"]
+    "exclude": ["./node-modules/**/.ts","./dist/**/*.*"],
+    "include": ["./**/*.ts"],
 }
