@@ -9,7 +9,6 @@
         "strict": true,
         "outDir": "./dist",
         "baseUrl": "./core",
-        "rootDirs": ["core","dist"],
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "declaration": true,
