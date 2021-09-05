@@ -72,7 +72,7 @@ var BaseService = (function () {
     };
     BaseService.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, err, results;
+            var _a, err, result;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4, (0, await_to_js_1.to)(this.repo.findOne({
@@ -82,7 +82,7 @@ var BaseService = (function () {
                             },
                         }))];
                     case 1:
-                        _a = _b.sent(), err = _a[0], results = _a[1];
+                        _a = _b.sent(), err = _a[0], result = _a[1];
                         if (err) {
                             return [2, {
                                     status: 500,
@@ -92,7 +92,7 @@ var BaseService = (function () {
                         return [2, {
                                 status: 200,
                                 message: "ok",
-                                results: results,
+                                result: result,
                             }];
                 }
             });
@@ -100,14 +100,14 @@ var BaseService = (function () {
     };
     BaseService.prototype.post = function (entity) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, err, results;
+            var _a, err, result;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         entity.insertedAt = new Date();
                         return [4, (0, await_to_js_1.to)(this.repo.save(entity))];
                     case 1:
-                        _a = _b.sent(), err = _a[0], results = _a[1];
+                        _a = _b.sent(), err = _a[0], result = _a[1];
                         if (err) {
                             return [2, {
                                     status: 500,
@@ -117,7 +117,7 @@ var BaseService = (function () {
                         return [2, {
                                 status: 201,
                                 message: "ok",
-                                results: results,
+                                result: result,
                             }];
                 }
             });
@@ -140,8 +140,8 @@ var BaseService = (function () {
                                     message: err.message,
                                 }];
                         }
-                        if (results === null || results === void 0 ? void 0 : results.results) {
-                            data = results === null || results === void 0 ? void 0 : results.results;
+                        if (results === null || results === void 0 ? void 0 : results.result) {
+                            data = results === null || results === void 0 ? void 0 : results.result;
                             for (key in entity) {
                                 if (Object.prototype.hasOwnProperty.call(data, key)) {
                                     element = entity[key];
@@ -197,8 +197,8 @@ var BaseService = (function () {
                                     message: err.message,
                                 }];
                         }
-                        if (results === null || results === void 0 ? void 0 : results.results) {
-                            data = results === null || results === void 0 ? void 0 : results.results;
+                        if (results === null || results === void 0 ? void 0 : results.result) {
+                            data = results === null || results === void 0 ? void 0 : results.result;
                             for (key in entity) {
                                 if (Object.prototype.hasOwnProperty.call(data, key)) {
                                     element = entity[key];
@@ -253,8 +253,8 @@ var BaseService = (function () {
                                     message: err.message,
                                 }];
                         }
-                        if (!(results === null || results === void 0 ? void 0 : results.results)) return [3, 3];
-                        data = results === null || results === void 0 ? void 0 : results.results;
+                        if (!(results === null || results === void 0 ? void 0 : results.result)) return [3, 3];
+                        data = results === null || results === void 0 ? void 0 : results.result;
                         data.deletedAt = new Date();
                         return [4, (0, await_to_js_1.to)(this.repo.update(id, data))];
                     case 2:
