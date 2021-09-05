@@ -184,7 +184,7 @@ var BaseService = (function () {
     };
     BaseService.prototype.patch = function (id, entity) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, err, results, data, key, element, res;
+            var _a, err, results, data, key, res;
             var _b;
             return __generator(this, function (_c) {
                 switch (_c.label) {
@@ -200,8 +200,7 @@ var BaseService = (function () {
                         if (results === null || results === void 0 ? void 0 : results.result) {
                             data = results === null || results === void 0 ? void 0 : results.result;
                             for (key in entity) {
-                                if (Object.prototype.hasOwnProperty.call(data, key)) {
-                                    element = entity[key];
+                                if (Object.prototype.hasOwnProperty.call(data, key) && entity[key]) {
                                     data[key] = entity[key];
                                 }
                             }
