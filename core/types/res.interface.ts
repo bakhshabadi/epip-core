@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class IResponse<T>{
+export class IResponseAll<T>{
     
     @ApiProperty()
     status:number=0;
@@ -10,4 +10,16 @@ export class IResponse<T>{
     
 
     results?:Array<T>;
+}
+
+export class IResponse<T>{
+    
+    @ApiProperty()
+    status:number=0;
+
+    @ApiProperty()
+    message?:string;
+    
+
+    results?:T;
 }
