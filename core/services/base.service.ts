@@ -1,12 +1,16 @@
 import { to } from "await-to-js";
-import { DeepPartial, Repository } from "typeorm";
+import { DeepPartial, IsNull, Repository } from "typeorm";
 import { IResponse, IResponseAll } from "../types";
 
 export class BaseService<T> {
   constructor(private repo: Repository<T>) {}
 
   public async getAll(): Promise<IResponseAll<T>> {
-    const [err, results] = await to(this.repo.find({}));
+    const [err, results] = await to(this.repo.find({
+      where:{
+        deletedAt:IsNull()
+      }
+    }));
     if (err) {
       return {
         status: 500,
@@ -26,6 +30,7 @@ export class BaseService<T> {
       this.repo.findOne({
         where: {
           id,
+          deletedAt:IsNull()
         },
       })
     );
@@ -44,6 +49,7 @@ export class BaseService<T> {
   }
 
   public async post(entity: T): Promise<IResponse<T>> {
+    (entity as any).insertedAt=new Date()
     const [err, results] = await to(this.repo.save(entity));
     if (err) {
       return {
@@ -60,6 +66,7 @@ export class BaseService<T> {
   }
 
   public async put(id: number, entity: T): Promise<IResponse<T>> {
+    (entity as any).insertedAt=new Date()
     let [err, results] = await to(this.get(id));
     if (err) {
       return {
@@ -85,7 +92,8 @@ export class BaseService<T> {
     }
 
     let res;
-    [err, res] = await to(this.repo.save(data));
+    (data as any).updatedAt=new Date();
+    [err, res] = await to(this.repo.update(id,data));
     if (err) {
       return {
         status: 500,
@@ -93,11 +101,17 @@ export class BaseService<T> {
       } as IResponse<T>;
     }
 
-    return {
-      status: 200,
-      message: "ok",
-      results:res,
-    };
+    if(res?.affected){
+      return {
+        status: 200,
+        message: "ok",
+      };
+    }else{
+      return {
+        status: 500,
+        message: 'error !.',
+      } as IResponse<T>;
+    }
   }
 
   public async patch(id: number, entity: DeepPartial<T>): Promise<IResponse<DeepPartial<T>>> {
@@ -126,7 +140,8 @@ export class BaseService<T> {
     }
 
     let res;
-    [err, res] = await to(this.repo.save(data));
+    (data as any).updatedAt=new Date();
+    [err, res] = await to(this.repo.update(id,data));
     if (err) {
       return {
         status: 500,
@@ -134,11 +149,17 @@ export class BaseService<T> {
       } as IResponse<T>;
     }
 
-    return {
-      status: 200,
-      message: "ok",
-      results:res,
-    };
+    if(res?.affected){
+      return {
+        status: 200,
+        message: "ok",
+      };
+    }else{
+      return {
+        status: 500,
+        message: 'error !.',
+      } as IResponse<T>;
+    }
   }
 
   public async delete(id: number): Promise<IResponse<T>> {
@@ -153,8 +174,8 @@ export class BaseService<T> {
     let data: DeepPartial<T>;
     if (results?.results) {
       data = results?.results;
-      
-      let [errDelete, resultsDelete] = await to(this.repo.softDelete(data));
+      (data as any).deletedAt=new Date();
+      let [errDelete, resultsDelete] = await to(this.repo.update(id,data));
       if(errDelete){
         return {
           status: 500,
