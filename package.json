@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "publish": "tsc -p tsconfig.json && npm version patch && npm publish --access public"
+    "app": "tsc -p tsconfig.json && npm version patch && npm publish --access public"
   },
   "repository": {
     "type": "git",
