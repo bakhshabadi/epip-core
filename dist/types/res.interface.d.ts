@@ -1,7 +1,7 @@
 export declare class IResponseAll<T> {
     status: number;
     message?: string;
-    results?: Array<T>;
+    results?: T[];
 }
 export declare class IResponse<T> {
     status: number;
