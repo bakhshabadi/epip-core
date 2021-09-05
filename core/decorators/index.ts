@@ -1,2 +1,2 @@
-export {ApiController}  from "./swg-ctrl.decorator";
-export {ApiGetAll} from "./swg-get-all.decorator";
+export *  from "./swg-ctrl.decorator";
+export * from "./swg-crud.decorator";

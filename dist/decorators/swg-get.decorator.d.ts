@@ -1,0 +1,6 @@
+import { Type } from "@nestjs/common";
+export declare const ApiGet: <TModel extends Type<any>>(model: TModel, path?: string | undefined) => <TFunction extends Function, Y>(target: object | TFunction, propertyKey?: string | symbol | undefined, descriptor?: TypedPropertyDescriptor<Y> | undefined) => void;
+export declare const ApiPost: <TModel extends Type<any>>(model: TModel, path?: string | undefined) => <TFunction extends Function, Y>(target: object | TFunction, propertyKey?: string | symbol | undefined, descriptor?: TypedPropertyDescriptor<Y> | undefined) => void;
+export declare const ApiPut: <TModel extends Type<any>>(model: TModel, path?: string | undefined) => <TFunction extends Function, Y>(target: object | TFunction, propertyKey?: string | symbol | undefined, descriptor?: TypedPropertyDescriptor<Y> | undefined) => void;
+export declare const ApiDelete: <TModel extends Type<any>>(model: TModel, path?: string | undefined) => <TFunction extends Function, Y>(target: object | TFunction, propertyKey?: string | symbol | undefined, descriptor?: TypedPropertyDescriptor<Y> | undefined) => void;
+//# sourceMappingURL=swg-get.decorator.d.ts.map
