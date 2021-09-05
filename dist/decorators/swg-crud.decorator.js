@@ -8,7 +8,7 @@ var ApiGetAll = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/"), (0, swagger_1.ApiOkResponse)({
         schema: {
             allOf: [
-                { $ref: (0, swagger_1.getSchemaPath)(res_interface_1.IResponse) },
+                { $ref: (0, swagger_1.getSchemaPath)(res_interface_1.IResponseAll) },
                 {
                     properties: {
                         results: {
