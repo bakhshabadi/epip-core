@@ -1,5 +1,5 @@
 import { applyDecorators, Delete, Get, Patch, Post, Put, Type } from "@nestjs/common";
-import { ApiOkResponse, getSchemaPath } from "@nestjs/swagger";
+import { ApiOkResponse, ApiParam, getSchemaPath } from "@nestjs/swagger";
 import { IResponse } from "../types/res.interface";
 
 export const ApiGetAll = <TModel extends Type<any>>(
@@ -55,7 +55,11 @@ export const ApiPut = <TModel extends Type<any>>(
   path?: string
 ) => {
   return applyDecorators(
-    Put(path || "/"),
+    Put(path || "/:id"),
+    ApiParam({
+      name: 'id',
+      type: 'number'
+    }),
     ApiOkResponse({
       type: model,
     })
