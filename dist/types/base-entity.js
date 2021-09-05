@@ -10,34 +10,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseEntity = void 0;
-const swagger_1 = require("@nestjs/swagger");
-const typeorm_1 = require("typeorm");
-class BaseEntity {
-    constructor() {
+var swagger_1 = require("@nestjs/swagger");
+var typeorm_1 = require("typeorm");
+var BaseEntity = (function () {
+    function BaseEntity() {
         this.id = 0;
         this.insertedAt = new Date();
         this.updatedAt = new Date();
         this.deletedAt = new Date();
     }
-}
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], BaseEntity.prototype, "id", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
-], BaseEntity.prototype, "insertedAt", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
-], BaseEntity.prototype, "updatedAt", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
-], BaseEntity.prototype, "deletedAt", void 0);
+    __decorate([
+        (0, swagger_1.ApiProperty)(),
+        (0, typeorm_1.PrimaryGeneratedColumn)(),
+        __metadata("design:type", Number)
+    ], BaseEntity.prototype, "id", void 0);
+    __decorate([
+        (0, swagger_1.ApiProperty)(),
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Date)
+    ], BaseEntity.prototype, "insertedAt", void 0);
+    __decorate([
+        (0, swagger_1.ApiProperty)(),
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Date)
+    ], BaseEntity.prototype, "updatedAt", void 0);
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Date)
+    ], BaseEntity.prototype, "deletedAt", void 0);
+    return BaseEntity;
+}());
 exports.BaseEntity = BaseEntity;
 //# sourceMappingURL=base-entity.js.map

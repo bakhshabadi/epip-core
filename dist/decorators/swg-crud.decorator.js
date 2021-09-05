@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApiDelete = exports.ApiPatch = exports.ApiPut = exports.ApiPost = exports.ApiGet = exports.ApiGetAll = void 0;
-const common_1 = require("@nestjs/common");
-const swagger_1 = require("@nestjs/swagger");
-const res_interface_1 = require("../types/res.interface");
-const ApiGetAll = (model, path) => {
+var common_1 = require("@nestjs/common");
+var swagger_1 = require("@nestjs/swagger");
+var res_interface_1 = require("../types/res.interface");
+var ApiGetAll = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/"), (0, swagger_1.ApiOkResponse)({
         schema: {
             allOf: [
@@ -22,7 +22,7 @@ const ApiGetAll = (model, path) => {
     }));
 };
 exports.ApiGetAll = ApiGetAll;
-const ApiGet = (model, path) => {
+var ApiGet = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Get)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
         type: 'string'
@@ -31,13 +31,13 @@ const ApiGet = (model, path) => {
     }));
 };
 exports.ApiGet = ApiGet;
-const ApiPost = (model, path) => {
+var ApiPost = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Post)(path || "/"), (0, swagger_1.ApiOkResponse)({
         type: model,
     }));
 };
 exports.ApiPost = ApiPost;
-const ApiPut = (model, path) => {
+var ApiPut = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Put)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
         type: 'string'
@@ -46,7 +46,7 @@ const ApiPut = (model, path) => {
     }));
 };
 exports.ApiPut = ApiPut;
-const ApiPatch = (model, path) => {
+var ApiPatch = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Patch)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
         type: 'string'
@@ -55,7 +55,7 @@ const ApiPatch = (model, path) => {
     }));
 };
 exports.ApiPatch = ApiPatch;
-const ApiDelete = (model, path) => {
+var ApiDelete = function (model, path) {
     return (0, common_1.applyDecorators)((0, common_1.Delete)(path || "/:id"), (0, swagger_1.ApiParam)({
         name: 'id',
         type: 'string'

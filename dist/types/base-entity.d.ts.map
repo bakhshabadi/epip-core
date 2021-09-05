@@ -1,1 +1,1 @@
-{"version":3,"file":"base-entity.d.ts","sourceRoot":"","sources":["../../core/types/base-entity.ts"],"names":[],"mappings":"AAGA,qBAAa,UAAU;IAGrB,EAAE,EAAE,MAAM,CAAG;IAIb,UAAU,EAAE,IAAI,CAAY;IAI5B,SAAS,EAAE,IAAI,CAAY;IAG3B,SAAS,EAAE,IAAI,CAAY;CAC5B"}
+{"version":3,"file":"base-entity.d.ts","sourceRoot":"","sources":["../../core/types/base-entity.ts"],"names":[],"mappings":"AAGA,qBAAa,UAAU;IAGrB,EAAE,EAAE,MAAM,CAAG;IAIb,UAAU,CAAC,EAAE,IAAI,CAAY;IAI7B,SAAS,CAAC,EAAE,IAAI,CAAY;IAG5B,SAAS,CAAC,EAAE,IAAI,CAAY;CAC7B"}
