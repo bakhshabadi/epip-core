@@ -2,11 +2,12 @@ import { to } from "await-to-js";
 import { DeepPartial, IsNull, Repository } from "typeorm";
 import { IResponse, IResponseAll } from "../types";
 import { Request } from "express";
+import { Req } from "@nestjs/common";
 
 export class BaseService<T> {
   constructor(private repo: Repository<T>) {}
 
-  public async getAll(req: Request): Promise<IResponseAll<T>> {
+  public async getAll(@Req() req: Request): Promise<IResponseAll<T>> {
     const [err, results] = await to(this.repo.find({
       where:{
         deletedAt:IsNull()
