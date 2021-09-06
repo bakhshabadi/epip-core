@@ -1,11 +1,12 @@
 import { to } from "await-to-js";
 import { DeepPartial, IsNull, Repository } from "typeorm";
 import { IResponse, IResponseAll } from "../types";
+import { Request } from "express";
 
 export class BaseService<T> {
   constructor(private repo: Repository<T>) {}
 
-  public async getAll(): Promise<IResponseAll<T>> {
+  public async getAll(req: Request): Promise<IResponseAll<T>> {
     const [err, results] = await to(this.repo.find({
       where:{
         deletedAt:IsNull()
@@ -25,7 +26,7 @@ export class BaseService<T> {
     };
   }
 
-  public async get(id: number): Promise<IResponse<T>> {
+  public async get(req: Request, id: number): Promise<IResponse<T>> {
     const [err, result] = await to(
       this.repo.findOne({
         where: {
@@ -48,7 +49,7 @@ export class BaseService<T> {
     };
   }
 
-  public async post(entity: T): Promise<IResponse<T>> {
+  public async post(req: Request, entity: T): Promise<IResponse<T>> {
     (entity as any).insertedAt=new Date()
     const [err, result] = await to(this.repo.save(entity));
     if (err) {
@@ -65,9 +66,9 @@ export class BaseService<T> {
     };
   }
 
-  public async put(id: number, entity: T): Promise<IResponse<T>> {
+  public async put(req: Request, id: number, entity: T): Promise<IResponse<T>> {
     (entity as any).insertedAt=new Date()
-    let [err, results] = await to(this.get(id));
+    let [err, results] = await to(this.get(req, id));
     if (err) {
       return {
         status: 500,
@@ -114,8 +115,8 @@ export class BaseService<T> {
     }
   }
 
-  public async patch(id: number, entity: T): Promise<IResponse<T>> {
-    let [err, results] = await to(this.get(id));
+  public async patch(req: Request, id: number, entity: T): Promise<IResponse<T>> {
+    let [err, results] = await to(this.get(req, id));
     if (err) {
       return {
         status: 500,
@@ -161,8 +162,8 @@ export class BaseService<T> {
     }
   }
 
-  public async delete(id: number): Promise<IResponse<T>> {
-    let [err, results] = await to(this.get(id));
+  public async delete(req: Request, id: number): Promise<IResponse<T>> {
+    let [err, results] = await to(this.get(req, id));
     if (err) {
       return {
         status: 500,
